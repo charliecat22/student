@@ -32,7 +32,7 @@ public class StudentController {
 		
 		List<Student> ls = studentService.list(page);
 		mav.addObject("cs", ls);
-		mav.setViewName("listStudent");
+		mav.setViewName("listStudent.jsp");
 		
 		return mav;
 	}

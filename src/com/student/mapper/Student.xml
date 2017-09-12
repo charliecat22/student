@@ -5,28 +5,29 @@
  
     <mapper namespace="com.student.mapper.StudentMapper">
         <insert id="add" parameterType="Student" >
-            insert into student_ ( name ) values (#{name})    
+            insert into user_info (name,sex,img_url,cid,iid,uid,role) values (#{name},#{sex},#{img_url},#{cid},#{iid},#{uid},#{role})    
         </insert>
          
         <delete id="delete" parameterType="Student" >
-            delete from student_ where id= #{id}   
+            delete from user_info where id= #{id}   
         </delete>
          
         <select id="get" parameterType="_int" resultType="Student">
-            select * from   student_  where id= #{id}    
+            select * from   user_info  where id= #{id}    
         </select>
  
         <update id="update" parameterType="Student" >
-            update student_ set name=#{name} where id=#{id}    
+            update user_ info name=#{name},sex=#{sex},img_url=#{img_url},cid=#{cid},iid=#{iid},uid=#{uid},role=#{role} where id=#{id}    
         </update>
+        
         <select id="list" resultType="Student">
-            select * from   student_     
+            select * from   user_info     
             <if test="start!=null and count!=null" >
             	limit #{start},#{count}
             </if> 
         </select>     
         
         <select id="total" resultType="int"> 
-        	select count(*) from student_
+        	select count(*) from user_info 
         </select>
     </mapper>
