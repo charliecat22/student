@@ -38,4 +38,16 @@ public class StudentServiceImpl implements StudentService{
 		studentMapper.add(student);
 	}
 
+	@Override
+	public Student get(Student student) {
+		// TODO Auto-generated method stub
+		return studentMapper.get(student);
+	}
+
+	@Override
+	public void update(Student student) {
+		// TODO Auto-generated method stub
+		studentMapper.update(student);
+	}
+
 }

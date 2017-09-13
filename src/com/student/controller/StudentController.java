@@ -2,21 +2,23 @@ package com.student.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
-import javax.crypto.Mac;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.druid.stat.TableStat.Mode;
 import com.student.pojo.Student;
 import com.student.pojo.UploadedImageFile;
 import com.student.service.StudentService;
 import com.student.util.Page;
+
 
 @Controller
 @RequestMapping("")
@@ -24,12 +26,13 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 	
+	
 	public String name;
 	public String sex;
 	public String cid;
 	public String uid;
 	public String iid;
-	
+	public int id;
 	
 	@RequestMapping("listStudent")
 	public ModelAndView listStudent(Page page){
@@ -50,10 +53,10 @@ public class StudentController {
 	}
 
 	@RequestMapping("addUserInfo")
-	public ModelAndView add(String name,String sex,String cid,String iid,HttpServletRequest request,UploadedImageFile file)
+	public String add(String name,String sex,String cid,String iid,HttpServletRequest request,UploadedImageFile file)
 	throws IllegalStateException, IOException{
 		  ModelAndView mav = new ModelAndView();
-		  String newFileName = "/"+name+".jpg";
+		  String newFileName = "/"+new Date().getTime()+".jpg";
 		  File newFile = new File(request.getServletContext().getRealPath("/image"), newFileName);
 	      newFile.getParentFile().mkdirs();
 	      file.getImage().transferTo(newFile);
@@ -67,16 +70,42 @@ public class StudentController {
 	      st.setIid(iid);
 	      
 	      studentService.add(st);
-	      
-	      mav.setViewName("listStudent.jsp");
+	      return "redirect:/listStudent";
+	}
+	
+	@RequestMapping("editUserInfo")
+	public ModelAndView edit(Student student,Map<String, Object> map){
 		
-		return null;
+		ModelAndView mav = new ModelAndView();
+		student=studentService.get(student);
+		map.put("student",student);
+		mav.setViewName("editUser.jsp");
+		return mav;
 		
 	}
 	
 	
-	
-	
+	@RequestMapping("updateUserInfo")
+	public String update(String name,String cid,String iid,int id,UploadedImageFile file,HttpServletRequest request,MultipartFile image) 
+			throws IllegalStateException, IOException{
+		Student student = new Student();
+		
+		if(!file.getImage().isEmpty()){
+		  String newFileName = "/"+new Date().getTime()+".jpg";
+		  File newFile = new File(request.getServletContext().getRealPath("/image"), newFileName);
+	      newFile.getParentFile().mkdirs();
+	      file.getImage().transferTo(newFile);
+	      String path = "/image"+newFileName;
+	      student.setImg(path);
+		}
+		
+		student.setId(id);
+		student.setName(name);
+		student.setCid(cid);
+		student.setIid(iid);
+		studentService.update(student);
+		return "redirect:/listStudent";
+	}
 	
 	
 	
@@ -100,6 +129,14 @@ public class StudentController {
 	
 
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getCid() {
 		return cid;
 	}
@@ -123,6 +160,8 @@ public class StudentController {
 	public void setIid(String iid) {
 		this.iid = iid;
 	}
+
+
 	
 	
 	

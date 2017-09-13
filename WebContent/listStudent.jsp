@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 td{
-   width:40px;
+   width:150px;
    height:40px;
 }
 <%
@@ -27,7 +27,6 @@ pageContext.setAttribute("basePath",basePath);
 <body>
 <table align='center' border='1' cellspacing='0' >
     <tr>
-        <td>id</td>
         <td>头像</td>
         <td>姓名</td>
         <td>性别</td>
@@ -38,13 +37,12 @@ pageContext.setAttribute("basePath",basePath);
     </tr>
     <c:forEach items="${cs}" var="c" varStatus="st">
         <tr>
-            <td>${c.id}</td>
          	<td><img src="<%=basePath%>${c.img}"/></td>
             <td>${c.name}</td>
             <td>${c.sex}</td>
             <td>${c.cid}</td>
             <td>${c.iid}</td>
-           	<td>编辑</td>
+           	<td><a href ="editUserInfo?id=${c.id}">编辑</a></td>
            	<td>评分</td>
         </tr>
     </c:forEach>

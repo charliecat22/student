@@ -12,12 +12,16 @@
             delete from user_info where id= #{id}   
         </delete>
          
-        <select id="get" parameterType="_int" resultType="Student">
+        <select id="get" parameterType="Student" resultType="Student">
             select * from   user_info  where id= #{id}    
         </select>
  
         <update id="update" parameterType="Student" >
-            update user_ info name=#{name},sex=#{sex},img=#{img},cid=#{cid},iid=#{iid},uid=#{uid},role=#{role} where id=#{id}    
+            update user_info set name=#{name},
+            <if test="img!=null">
+            img=#{img},
+            </if>
+            cid=#{cid},iid=#{iid} where id=#{id}    
         </update>
         
         <select id="list" resultType="Student">

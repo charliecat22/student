@@ -10,4 +10,7 @@ public interface StudentService {
 	public int total();
 	public List<Student> list(Page page);
 	public void add(Student student);
+	
+	public Student get(Student student);
+	public void update(Student student);
 }
