@@ -4,19 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录页面</title>
+<title>Insert title here</title>
 </head>
-<body >
-<h1 align="center">学生注册信息管理系统</h1>
+<body>
+<h3 align="center">用户注册</h3>
+
 <div style="width:100%;text-align:center">
-<form action="userLogin" method="post">
-	用户名：<input  type="text" name="username"/><br>
-	密码：<input  type="password" name="password"/><br>
-	<input type="submit" value="登录"/><br>
-	
+<form action="userRegister" method="post" >
+	新用户名：<input type="text" name="username"/><br>
+	新密码： <input type="password" name="password"/><br>
+	<input type="submit" value="注册"/><br>
 </form>
-<br>
-新用户请点击<a href="register.jsp">注册</a>
+
 </div>
 </body>
 </html>

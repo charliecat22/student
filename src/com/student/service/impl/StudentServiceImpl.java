@@ -32,4 +32,10 @@ public class StudentServiceImpl implements StudentService{
 		return studentMapper.list(page);
 	}
 
+	@Override
+	public void add(Student student) {
+		// TODO Auto-generated method stub
+		studentMapper.add(student);
+	}
+
 }

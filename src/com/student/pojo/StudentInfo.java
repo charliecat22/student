@@ -6,6 +6,7 @@ public class StudentInfo {
 	private String evaluate;
 	private int uid;
 	private int cid;
+	
 	public int getId() {
 		return id;
 	}

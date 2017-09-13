@@ -6,7 +6,8 @@ import com.student.pojo.Student;
 import com.student.util.Page;
 
 public interface StudentService {
-	List<Student> list();
-	int total();
-	List<Student> list(Page page);
+	public List<Student> list();
+	public int total();
+	public List<Student> list(Page page);
+	public void add(Student student);
 }

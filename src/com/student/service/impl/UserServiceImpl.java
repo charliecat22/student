@@ -11,10 +11,17 @@ import com.student.service.UserService;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	UserMapper userMapper;
+	
+	
 	@Override
 	public User getUserByNameAndPassword(User user) {
 		
 		return userMapper.getUserByNameAndPassword(user);
+	}
+	
+	@Override
+	public void userRegister(User user) {
+		userMapper.userRegister(user);
 	}
 
 }

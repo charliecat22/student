@@ -3,5 +3,6 @@ package com.student.service;
 import com.student.pojo.User;
 
 public interface UserService {
-	User getUserByNameAndPassword(User user);
+	public User getUserByNameAndPassword(User user);
+	public void userRegister(User user);
 }

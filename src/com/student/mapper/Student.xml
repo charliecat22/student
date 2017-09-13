@@ -5,7 +5,7 @@
  
     <mapper namespace="com.student.mapper.StudentMapper">
         <insert id="add" parameterType="Student" >
-            insert into user_info (name,sex,img_url,cid,iid,uid,role) values (#{name},#{sex},#{img_url},#{cid},#{iid},#{uid},#{role})    
+            insert into user_info (name,sex,img,cid,iid,uid) values (#{name},#{sex},#{img},#{cid},#{iid},#{uid})    
         </insert>
          
         <delete id="delete" parameterType="Student" >
@@ -17,7 +17,7 @@
         </select>
  
         <update id="update" parameterType="Student" >
-            update user_ info name=#{name},sex=#{sex},img_url=#{img_url},cid=#{cid},iid=#{iid},uid=#{uid},role=#{role} where id=#{id}    
+            update user_ info name=#{name},sex=#{sex},img=#{img},cid=#{cid},iid=#{iid},uid=#{uid},role=#{role} where id=#{id}    
         </update>
         
         <select id="list" resultType="Student">
