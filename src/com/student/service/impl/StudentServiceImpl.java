@@ -50,4 +50,15 @@ public class StudentServiceImpl implements StudentService{
 		studentMapper.update(student);
 	}
 
+	@Override
+	public List<Student> search(String keyword) {
+		return studentMapper.search(keyword);
+	}
+
+	@Override
+	public List<Student> listById(int id) {
+		// TODO Auto-generated method stub
+		return studentMapper.listById(id);
+	}
+
 }

@@ -1,5 +1,7 @@
 package com.student.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,24 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void userRegister(User user) {
 		userMapper.userRegister(user);
+	}
+
+	@Override
+	public List<User> getUnExaminedUser() {
+		// TODO Auto-generated method stub
+		return userMapper.getUnExaminedUser();
+	}
+
+	@Override
+	public void updateStatus(int id) {
+		userMapper.updateStatus(id);
+		
+	}
+
+	@Override
+	public User getUserByNameAndPassword2(User user) {
+		// TODO Auto-generated method stub
+		return userMapper.getUserByNameAndPassword2(user);
 	}
 
 }

@@ -19,4 +19,10 @@ public interface StudentMapper {
 	public int total();
 	public List<Student> list(Page page);
 	
+	
+	public List<Student> search(String keyword);
+	
+	public List<Student> listById(int id);
+	
+	
 }

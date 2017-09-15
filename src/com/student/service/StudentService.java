@@ -13,4 +13,8 @@ public interface StudentService {
 	
 	public Student get(Student student);
 	public void update(Student student);
+	
+	public List<Student> search(String keyword);
+	
+	public List<Student> listById(int id);
 }

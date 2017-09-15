@@ -6,7 +6,7 @@ public class Student {
 	private String sex;
 	private String img;
 	private String cid;
-	private String uid;
+	private int uid;
 	private String iid;
 	
 	
@@ -41,10 +41,10 @@ public class Student {
 	public void setCid(String cid) {
 		this.cid = cid;
 	}
-	public String getUid() {
+	public int getUid() {
 		return uid;
 	}
-	public void setUid(String uid) {
+	public void setUid(int uid) {
 		this.uid = uid;
 	}
 	public String getIid() {

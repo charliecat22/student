@@ -5,10 +5,21 @@
  
     <mapper namespace="com.student.mapper.UserMapper">
         <select id="getUserByNameAndPassword" parameterType="com.student.pojo.User"  resultType="com.student.pojo.User">
-            select * from   user  where username= #{username} and password = #{password}    
+            select * from   user  where username= #{username} and password = #{password}  and status='1'  
+        </select>
+        <select id="getUserByNameAndPassword2" parameterType="com.student.pojo.User"  resultType="com.student.pojo.User">
+            select * from   user  where username= #{username} and password = #{password}  
         </select>
         
         <insert id="userRegister" parameterType="com.student.pojo.User">
         	insert into user (username,password,role) values(#{username},#{password},#{role})
         </insert>
+        
+        <select id="getUnExaminedUser" resultType="com.student.pojo.User">
+        	select * from user where status='2';
+        </select>
+        
+        <update id="updateStatus" parameterType="int">
+        	update user set status='1' where id=#{id};
+        </update>
     </mapper>

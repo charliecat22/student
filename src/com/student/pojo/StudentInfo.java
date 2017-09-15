@@ -5,7 +5,7 @@ public class StudentInfo {
 	private int score;
 	private String evaluate;
 	private int uid;
-	private int cid;
+	private String cid;
 	
 	public int getId() {
 		return id;
@@ -31,10 +31,10 @@ public class StudentInfo {
 	public void setUid(int uid) {
 		this.uid = uid;
 	}
-	public int getCid() {
+	public String getCid() {
 		return cid;
 	}
-	public void setCid(int cid) {
+	public void setCid(String cid) {
 		this.cid = cid;
 	}
 	

@@ -8,6 +8,7 @@
 <title>编辑学生信息</title>
 </head>
 <body>
+<h2 align="center">编辑学生信息</h2>
 <div style="width:100%;text-align:center">
 <form action="updateUserInfo" method="post" enctype="multipart/form-data">
 	姓名：<input type="text" name="name" value="${student.name}"/><br>

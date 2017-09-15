@@ -18,6 +18,7 @@
 	<br>
 	头像：<input type="file" name="image" accept="image/*" /><br>
 	<br>
+	<input type="hidden" name="uid" value="${user.id}"/>
 	<input type="submit" value="提交"/><br>
 </form>
 </div>
